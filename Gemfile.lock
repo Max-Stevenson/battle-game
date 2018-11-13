@@ -58,6 +58,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  rack
   rspec
   selenium-webdriver
   sinatra
