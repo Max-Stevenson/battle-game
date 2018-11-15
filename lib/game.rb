@@ -4,7 +4,15 @@ class Game
     @players = [player_1, player_2]
     @current_player = 1
     @opponent = 0
-	end
+  end
+  
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+  
+  def self.instance
+    @game
+  end
 
 	def player_1
 		@players.first
