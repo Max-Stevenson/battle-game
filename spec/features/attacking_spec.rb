@@ -5,12 +5,22 @@ feature 'player attacking' do
 		expect(page).to have_content("Max attacked Ajay")
 	end
 
-	scenario 'attack reduces HP' do
+	scenario 'player one attacks' do
 		sign_in_and_play
-		click_button('attack')
-		click_button('return')
+		attack
 		expect(page).not_to have_content("Ajay - HP: 60")
 		expect(page).to have_content("Ajay - HP: 50")
+		expect(page).to have_content("Max - HP: 60")
 	end
+
+	scenario 'player two attacked' do
+		sign_in_and_play
+		attack
+		attack
+		expect(page).not_to have_content("Max - HP: 60")
+		expect(page).to have_content("Ajay - HP: 50")
+		expect(page).to have_content("Max - HP: 50")
+	end
+	
 end
 
