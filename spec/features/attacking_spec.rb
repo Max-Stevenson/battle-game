@@ -8,6 +8,7 @@ feature 'player attacking' do
 	scenario 'attack reduces HP' do
 		sign_in_and_play
 		click_button('attack')
+		click_button('return')
 		expect(page).not_to have_content("Ajay - HP: 60")
 		expect(page).to have_content("Ajay - HP: 50")
 	end
